@@ -5,6 +5,8 @@ const menuContainer = document.querySelector('.container_menu');
 const plusIcon = document.querySelector('.plus_icon');
 const taskRow = document.querySelector('.task--row');
 const containerTask = document.querySelector('.container_task');
+const marcadorTarea = document.querySelector('.no_marcado--task');
+const textTarea = document.querySelector('.text--task');
 
 cuentaIcono.addEventListener('click', () => {
   iconCerrar.classList.toggle('icon_cerrar--no');
@@ -39,3 +41,7 @@ plusIcon.addEventListener('click', ()=>{
   console.log(filaTarea);
 });
 
+marcadorTarea.addEventListener('click', ()=>{
+  marcadorTarea.classList.toggle('marcado--task');
+  textTarea.classList.toggle('text--task_resuelto');
+});

@@ -258,6 +258,21 @@ body{
   width: 24px;
   height: 24px;
   cursor: pointer;
+  transition: .3s;
+}
+
+.no_marcado--task:hover{
+  transform: scale(1.1);
+}
+
+.marcado--task{
+  background-image: url('../assets/icon/marcado_icon.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
 .container-text--task{
@@ -279,6 +294,11 @@ body{
   outline: none;
   background-color: transparent;
   padding: 0;
+  transition: .3s;
+}
+
+.text--task_resuelto{
+  text-decoration-line: line-through;
 }
 
 .no_borrado--task{
@@ -289,4 +309,17 @@ body{
   width: 18px;
   height: 22px;
   cursor: pointer;
+  transition: .3s;
+}
+
+.no_borrado--task:hover{
+  background-image: url('../assets/icon/basura_abierta_icon.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 18px;
+  height: 24px;
+  cursor: pointer;
+  transition: .3s;
+  transform: scale(1.1);
 }
