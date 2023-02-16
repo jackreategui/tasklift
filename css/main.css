@@ -222,6 +222,7 @@ body{
 .plus_icon{
   width: 40px;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .plus_icon:hover{

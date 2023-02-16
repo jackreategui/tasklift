@@ -3,10 +3,10 @@ const iconCerrar = document.querySelector('.icon--cerrar');
 const menuOverlay = document.querySelector('.menu_overlay');
 const menuContainer = document.querySelector('.container_menu');
 const plusIcon = document.querySelector('.plus_icon');
-const taskRow = document.querySelector('.task--row');
+// const taskRow = document.querySelector('.task--row');
 const containerTask = document.querySelector('.container_task');
-const marcadorTarea = document.querySelector('.no_marcado--task');
-const textTarea = document.querySelector('.text--task');
+// const marcadorTarea = document.querySelector('.no_marcado--task');
+// const textTarea = document.querySelector('.text--task');
 
 cuentaIcono.addEventListener('click', () => {
   iconCerrar.classList.toggle('icon_cerrar--no');
@@ -38,9 +38,45 @@ menuOverlay.addEventListener('click', () => {
 
 plusIcon.addEventListener('click', ()=>{
   console.log('tiene que crear una tarea');
+
+  const taskRow = document.createElement('div');
+  taskRow.classList.add('task--row');
+
+  const marcador = document.createElement('div');
+  marcador.classList.add('no_marcado--task');
+
+  const task = document.createElement('div');
+  task.classList.add('container-text--task');
+
+  const inputTask = document.createElement('input');
+  inputTask.classList.add('text--task');
+  inputTask.setAttribute('placeholder', 'Tarea');
+
+  
+  const basura = document.createElement('div');
+  basura.classList.add('no_borrado--task');
+  
+  containerTask.appendChild(taskRow);
+  taskRow.appendChild(marcador);
+  taskRow.appendChild(task);
+  task.appendChild(inputTask);
+  taskRow.appendChild(basura);
+
+  marcarTask();
 });
 
-marcadorTarea.addEventListener('click', ()=>{
-  marcadorTarea.classList.toggle('marcado--task');
-  textTarea.classList.toggle('text--task_resuelto');
-});
+function marcarTask() {
+  const marcadorTarea = document.querySelector('.no_marcado--task');
+  const textTarea = document.querySelector('.text--task');
+  const borrarTask = document.querySelector('.no_borrado--task');
+  const taskRow = document.querySelector('.task--row');
+
+  marcadorTarea.addEventListener('click', ()=>{
+    marcadorTarea.classList.toggle('marcado--task');
+    textTarea.classList.toggle('text--task_resuelto');
+  });
+
+  borrarTask.addEventListener('click', ()=>{
+    taskRow.parentNode.removeChild(taskRow);
+  });
+};
