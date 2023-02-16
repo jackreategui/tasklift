@@ -72,6 +72,13 @@ body{
   background-color: #000000a7;
   position: fixed;
   inset: 0;
+  transition: 0.3s;
+
+  display: none;
+}
+
+.menu_overlay--oculto{
+  display: inline-block;
 }
 
 .container_menu{
@@ -82,10 +89,16 @@ body{
   right: 0;
   left: 0;
   bottom: 0;
-  display: flex;
+  display: none;
   flex-direction: column;
   border-radius: 1em 1em 0 0;
   overflow: auto;
+
+  transition: 0.5s;
+}
+
+.container_menu--abierto{
+  display: flex;
 }
 
 .icon--cerrar{
@@ -95,6 +108,13 @@ body{
   top: 16px;
   right: 24px;
   cursor: pointer;
+  display: none;
+
+  transition: 0.3s;
+}
+
+.icon_cerrar--no{
+  display: inline-block;
 }
 
 .container_login{
@@ -174,7 +194,6 @@ body{
   padding: 0 16px;
   margin: 16px auto;
   max-width: 768px;
-  margin: 0 auto;
 }
 
 .header--info{
