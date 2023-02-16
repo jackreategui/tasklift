@@ -204,6 +204,13 @@ body{
 .info-h3{
   font-size: var(--h3);
   font-weight: 600;
+  border: none;
+  background-color: transparent;
+}
+
+.info-h3:focus-visible{
+  border: none;
+  outline: none;
 }
 
 .info-p-tareas{
@@ -246,6 +253,7 @@ body{
 .no_marcado--task{
   width: 24px;
   height: 24px;
+  cursor: pointer;
 }
 
 .container-text--task{
@@ -260,5 +268,16 @@ body{
 .text--task{
   color: var(--black);
   font-size: var(--parrafo_largo);
-  font-weight: 400;
+  font-weight: 300;
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.no_borrado--task{
+  width: 18px;
+  cursor: pointer;
 }
