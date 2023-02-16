@@ -18,11 +18,24 @@ menuOverlay.addEventListener('click', () => {
   menuContainer.classList.remove('container_menu--abierto');
 })
 
-const filaTarea = [];
-filaTarea.push({
+// const filaTarea = [];
+// filaTarea.push({
+//   marcador: '../assets/icon/no_marcado_icon.svg',
+//   textTarea: 'Tarea',
+//   tacho: '../assets/icon/basura_icon.svg'
+// });
 
-});
+
+{/* <div class="task--row">
+  <div class="no_marcado--task"></div>
+  <div class="container-text--task">
+      <input class="text--task" placeholder="Tarea" value="">
+  </div>
+  <div class="no_borrado--task"></div>
+</div> */}
 
 plusIcon.addEventListener('click', ()=>{
-  const html = 
-})
+  console.log('tiene que crear una tarea');
+  console.log(filaTarea);
+});
+

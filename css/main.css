@@ -251,6 +251,10 @@ body{
 }
 
 .no_marcado--task{
+  background-image: url('../assets/icon/no_marcado_icon.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -278,6 +282,11 @@ body{
 }
 
 .no_borrado--task{
+  background-image: url('../assets/icon/basura_icon.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 18px;
+  height: 22px;
   cursor: pointer;
 }
