@@ -38,7 +38,6 @@ menuOverlay.addEventListener('click', () => {
 
 plusIcon.addEventListener('click', ()=>{
   console.log('tiene que crear una tarea');
-  console.log(filaTarea);
 });
 
 marcadorTarea.addEventListener('click', ()=>{
