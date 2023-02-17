@@ -33,16 +33,26 @@ function agregarTarea(id, realizado, eliminado) {
   const Line = realizado ?tareaMarcadaText : '';
 
   const element = `
-                  <div class="task--row">
-                            <div class="${Realizado}" id="${id}"></div>
+                  <div class="task--row" id="${id}">
+                            <div class="${Realizado}" data="realizado" id="${id}"></div>
                             <div class="container-text--task">
                                 <input class="text--task ${Line}" id="${id}" placeholder="Tarea" value="">
                             </div>
-                            <div class="no_borrado--task" id="${id}"></div>
+                            <div class="no_borrado--task" data="eliminado" id="${id}"></div>
                         </div>
                   `;
 
   containerTask.insertAdjacentHTML("afterbegin", element);
+}
+
+function tareaRealizada(element) {
+  element.classList.toggle(tareaMarcadaIcon);
+  element.classList.toggle(tareaNoMarcadaIcon);
+  element.parentNode.querySelector('.text--task').classList.toggle(tareaMarcadaText);
+}
+
+function tareaEliminada(element) {
+  element.parentNode.parentNode.removeChild(element.parentNode);
 }
 
 plusIcon.addEventListener('click', ()=>{
@@ -50,68 +60,13 @@ plusIcon.addEventListener('click', ()=>{
   id++
 })
 
+containerTask.addEventListener('click', (event)=>{
+  const element = event.target;
+  const elementoData = element.attributes.data.value;
 
-
-
-// plusIcon.addEventListener("click", () => {
-//   const taskRow = document.createElement("div");
-//   taskRow.classList.add("task--row");
-
-//   const marcador = document.createElement("div");
-//   marcador.classList.add("no_marcado--task");
-
-//   const task = document.createElement("div");
-//   task.classList.add("container-text--task");
-  
-//   const inputTask = document.createElement("input");
-//   inputTask.classList.add("text--task");
-//   inputTask.setAttribute("placeholder", "Tarea");
-  
-//   const basura = document.createElement("div");
-//   basura.classList.add("no_borrado--task");
-  
-//   containerTask.appendChild(taskRow);
-//   taskRow.appendChild(marcador);
-//   taskRow.appendChild(task);
-//   task.appendChild(inputTask);
-//   taskRow.appendChild(basura);
-  
-  // const marcadorTarea = document.querySelectorAll(".no_marcado--task");
-  // const textTarea = document.querySelectorAll(".text--task");
-
-  // for (let i = 0; i < marcadorTarea.length; i++) {
-  //   const marcadorID = 'no_marcado--task_' + i;
-
-  //   marcador.setAttribute("id", marcadorID);
-
-  //   let marcadorBtnId = document.querySelector('#no_marcado--task_' + i);
-
-  //   marcadorBtnId.addEventListener('click', ()=>{
-  //     marcador.classList.toggle("marcado--task");
-  //     console.log('hola');
-  //     console.log(i);
-  //   })
-  // }
-
-  // for (let i = 0; i < textTarea.length; i++) {
-  //   const textTareaId = 'text--task_' + i;
-    
-  //   inputTask.setAttribute("id", textTareaId);
-
-  //   let textTareaBtnId = document.querySelector('#text--task_' + i);
-
-  //   textTareaBtnId.addEventListener('click', ()=>{
-  //     textTarea.classList.toggle("text--task_resuelto");
-  //   })
-  // }
-
-  // Marcador de tarea
-
-//   marcadorTarea.forEach(e=>{
-//     e.addEventListener('click', evento=>{
-//       let marcadoClick = evento.target;
-//       marcadoClick.classList.toggle("marcado--task");
-//       console.log('hola');
-//     })
-//   });
-// });
+  if (elementoData === 'realizado') {
+    tareaRealizada(element);
+  } else if (elementoData==='eliminado'){
+    tareaEliminada(element);
+  }
+})
